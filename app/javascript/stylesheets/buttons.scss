@@ -1,0 +1,32 @@
+.button {
+  @apply border text-white rounded-md px-4 py-2 m-2 transition duration-500;
+  @apply select-none focus:outline-none;
+
+  &.small {
+    @apply px-2 py-1 m-1 text-xs
+  }
+
+  &.primary {
+    @apply border-indigo-500 bg-indigo-500 hover:bg-indigo-600;
+  }
+
+  &.success {
+    @apply border-green-500 bg-green-500 hover:bg-green-600;
+  }
+
+  &.error {
+    @apply border-red-500 bg-red-500 hover:bg-red-600;
+  }
+
+  &.warning {
+    @apply border-yellow-500 bg-yellow-500 hover:bg-yellow-600;
+  }
+
+  &.dark {
+    @apply border-gray-700 bg-gray-700 hover:bg-gray-800;
+  }
+
+  &.light {
+    @apply border-gray-200 bg-gray-200 text-gray-700 hover:bg-gray-300;
+  }
+}

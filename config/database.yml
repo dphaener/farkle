@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  template: template0
+  timeout: 5000
+
+development:
+  <<: *default
+  url: postgresql://dev:dev@192.168.106.232/farkle_development?pool=5
+
+test:
+  <<: *default
+  url: postgresql://dev:dev@192.168.106.232/farkle_test?pool=5
+
+production:
+  <<: *default
+  url: postgresql://dev:dev@192.168.106.232/farkle_production?pool=5

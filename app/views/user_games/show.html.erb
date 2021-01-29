@@ -1,0 +1,26 @@
+<div class="p-4 space-y-4">
+  <% content_for :header do %>
+    <%= @user_game.game.title %>
+  <% end %>
+
+  <%= turbo_frame_tag "user_score" do %>
+    <%= render 'user_game_score/user_game_score', score: @user_game.score %>
+  <% end %>
+
+  <%=
+    form_for(
+      :score,
+      url: user_game_score_path(@user_game),
+      data: {
+        controller: 'reset-form',
+        'turbo-frame' => 'user_score',
+        action: "turbo:submit-end->reset-form#reset"
+      }
+    ) do |form|
+  %>
+    <%= form.number_field :score %>
+    <%= form.submit "Submit Score", class: "button success" %>
+  <% end %>
+
+  <%= image_tag 'farkle-score.jpg', class: "w-full" %>
+</div>

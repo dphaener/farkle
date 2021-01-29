@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<% content_for :header do %>
+  Games
+<% end %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Winning Score</th>
+      <th scope="col" colspan="4">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @games.each do |game| %>
+      <tr>
+        <td>
+          <span>Title</span>
+          <%= game.title %>
+        </td>
+        <td>
+          <span>Winning Score</span>
+          <%= game.winning_score %></td>
+        </td>
+        <td>
+          <span>Actions</span>
+          <% unless game.users.include?(current_user) %>
+            <%= link_to 'Join', game_join_path(game), method: :post, class: "button small success" %>
+          <% end %>
+          <%= link_to 'Show', game, class: "button small primary" %>
+          <%= link_to 'Edit', edit_game_path(game), class: "button small warning" %>
+          <%= link_to 'Destroy', game, method: :delete, class: "button small error", data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Game', new_game_path, class: "button primary" %>

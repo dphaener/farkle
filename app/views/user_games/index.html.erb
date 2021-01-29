@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<% content_for :header do %>
+  My Games
+<% end %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Score</th>
+      <th scope="col" colspan="3">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_games.each do |user_game| %>
+      <tr>
+        <td>
+          <span>Title</span>
+          <%= user_game.game.title %>
+        </td>
+        <td>
+          <span>Score</span>
+          <%= user_game.score %>
+        </td>
+        <td>
+          <span>Actions</span>
+          <%= link_to 'Show', user_game %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<% content_for :header do %>
+  <%= @game.title %> - Playing to <%= @game.winning_score %>
+<% end %>
+
+<%= turbo_stream_from @game %>
+
+<%= turbo_frame_tag 'user_games' do %>
+  <%= render 'game', game: @game %>
+<% end %>

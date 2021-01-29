@@ -1,0 +1,11 @@
+development:
+  adapter: redis
+  url: redis://192.168.106.172:6379/1
+
+test:
+  adapter: test
+
+production:
+  adapter: redis
+  url: <%= ENV.fetch("REDIS_URL") { "redis://192.168.106.172:6379/1" } %>
+  channel_prefix: farkle_production

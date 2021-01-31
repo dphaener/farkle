@@ -1,7 +1,7 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = ["hamburger", "x", "leftMenu", "rightMenu"]
+  static targets = ["mobileNav", "hamburger", "x"]
 
   connect() {
     this.menuOpen = false;
@@ -13,19 +13,15 @@ export default class extends Controller {
       this.xTarget.classList.add('hidden');
       this.hamburgerTarget.classList.remove('hidden');
       this.hamburgerTarget.classList.add('block');
-      this.leftMenuTarget.classList.remove('block');
-      this.leftMenuTarget.classList.add('hidden');
-      this.rightMenuTarget.classList.remove('block');
-      this.rightMenuTarget.classList.add('hidden');
+      this.mobileNavTarget.classList.remove('block');
+      this.mobileNavTarget.classList.add('hidden');
     } else {
       this.xTarget.classList.remove('hidden');
       this.xTarget.classList.add('block');
       this.hamburgerTarget.classList.remove('block');
       this.hamburgerTarget.classList.add('hidden');
-      this.leftMenuTarget.classList.remove('hidden');
-      this.leftMenuTarget.classList.add('block');
-      this.rightMenuTarget.classList.remove('hidden');
-      this.rightMenuTarget.classList.add('block');
+      this.mobileNavTarget.classList.remove('hidden');
+      this.mobileNavTarget.classList.add('block');
     }
 
     this.menuOpen = !this.menuOpen;

@@ -26,7 +26,9 @@
 
   <%= image_tag 'farkle-score.jpg', class: "w-full" %>
 
+  <br />
+
   <%= turbo_frame_tag 'user_games' do %>
-    <%= render 'game', game: @user_game.game %>
+    <%= render 'games/game', game: @user_game.game %>
   <% end %>
 </div>

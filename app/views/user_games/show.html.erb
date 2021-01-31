@@ -1,4 +1,6 @@
 <div class="p-4 space-y-4">
+  <%= turbo_stream_from @user_game.game %>
+
   <% content_for :header do %>
     <%= @user_game.game.title %>
   <% end %>
@@ -23,4 +25,8 @@
   <% end %>
 
   <%= image_tag 'farkle-score.jpg', class: "w-full" %>
+
+  <%= turbo_frame_tag 'user_games' do %>
+    <%= render 'game', game: @user_game.game %>
+  <% end %>
 </div>

@@ -27,11 +27,15 @@
     <main>
       <div class="py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <% if notice %>
-          <p class="alert alert-success"><%= notice %></p>
+          <div class="p-4 text-green-800 bg-green-100 border-l-4 border-green-500" role="alert">
+            <p><%= notice %></p>
+          </div>
         <% end %>
 
         <% if alert %>
-          <p class="alert alert-danger"><%= alert %></p>
+          <div class="p-4 text-red-800 bg-red-100 border-l-4 border-red-500" role="alert">
+            <p><%= alert %></p>
+          </div>
         <% end %>
 
         <%= yield %>

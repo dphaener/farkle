@@ -14,4 +14,4 @@ test:
 
 production:
   <<: *default
-  url: postgres://gnwqdavsltefnn:df5b5b39e8cd4ce7ce33b52e70da052147a1cf3a10a26dbb7483dce3232c4233@ec2-52-54-174-5.compute-1.amazonaws.com:5432/d7cl112e4h62e1?pool=5
+  url: <%= ENV.fetch("DATABASE_URL") %>
